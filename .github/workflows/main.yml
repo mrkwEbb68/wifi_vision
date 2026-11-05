@@ -31,6 +31,11 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v4
 
+      - name: Update Gradle Version
+        run: |
+          sed -i 's/gradle-.*-all.zip/gradle-8.14.0-all.zip/' android/gradle/wrapper/gradle-wrapper.properties
+          cat android/gradle/wrapper/gradle-wrapper.properties
+
       - name: Get dependencies
         run: flutter pub get
 
